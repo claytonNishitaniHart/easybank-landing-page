@@ -1,0 +1,68 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80vw;
+  height: 25px;
+  background-color: var(--White);
+  padding: 25px 10vw;
+  z-index: 999;
+  &-Logo {
+    height: 25px;
+  }
+  &-Buttons {
+    grid-column-start: 2;
+    margin-top: -25px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    &-Button {
+      position: relative;
+      border: none;
+      background: none;
+      color: var(--GrayishBlue);
+      font-weight: 400;
+      box-sizing: border-box;
+      height: 75px;
+      width: auto;
+      cursor: pointer;
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 70px;
+        height: 5px;
+        width: 0;
+        background-image: var(--Gradient);
+        transition: width ease 150ms, left ease 150ms;
+      }
+      &:hover {
+        color: var(--DarkBlue);
+      }
+      &:hover::before {
+        width: 70%;
+        left: 15%;
+      }
+    }
+  }
+  &-ReqInv {
+    position: absolute;
+    grid-column-start: 3;
+    margin-top: 12px;
+    right: 15vw;
+    border: none;
+    background: var(--Gradient);
+    padding: 0;
+    height: 50px;
+    width: 150px;
+    color: var(--White);
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(110%);
+    }
+  }
+}

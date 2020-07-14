@@ -1,0 +1,122 @@
+:root {
+  /*Colors*/
+  /*Primary*/
+  --DarkBlue: hsl(233, 26%, 24%);
+  --LimeGreen: hsl(136, 65%, 51%);
+  --BrightCyan: hsl(192, 70%, 51%);
+
+  --Gradient: linear-gradient(to right, var(--LimeGreen), var(--BrightCyan));
+
+  /*Neutral*/
+  --GrayishBlue: hsl(233, 8%, 62%);
+  --LightGrayishBlue: hsl(220, 16%, 96%);
+  --VeryLightGray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+  font-size: 18px;
+  font-weight: 300;
+  background-color: var(--LightGrayishBlue);
+}
+
+.App {
+  overflow: hidden;
+}
+
+.Intro {
+  position: relative;
+  margin-top: 75px;
+  width: 100vw;
+  max-width: 100vw;
+  height: 600px;
+  background-color: var(--VeryLightGray);
+  overflow: hidden;
+  &-Main {
+    margin-left: 5vw;
+    background-color: var(--VeryLightGray);
+    position: relative;
+    z-index: 1;
+    width: 500px;
+    border-radius: 20px;
+  }
+  &-Heading {
+    margin: 150px 0 10px 5vw;
+    width: 500px;
+    font-size: 2.75rem;
+    font-weight: 300;
+    line-height: 1.25;
+    color: var(--DarkBlue);
+  }
+  &-Body {
+    width: 450px;
+    margin-left: 5vw;
+    line-height: 1.5;
+    color: var(--GrayishBlue);
+  }
+  &-Button {
+    border: none;
+    background: var(--Gradient);
+    margin: 15px 0 10px 5vw;
+    height: 50px;
+    width: 150px;
+    color: var(--White);
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(110%);
+    }
+  }
+  &-BGImage {
+    position: absolute;
+    right: -400px;
+    top: -250px;
+  }
+}
+
+.Info {
+  position: relative;
+  height: 600px;
+  &-Heading {
+    margin-left: 10vw;
+    margin-top: 100px;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--DarkBlue);
+  }
+  &-Body {
+    margin-left: 10vw;
+    color: var(--GrayishBlue);
+    width: 650px;
+    line-height: 1.5;
+  }
+  &-InfoBlocks {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 80vw;
+    height: 200px;
+    margin-top: 75px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    &-InfoBlock {
+      padding-right: 2rem;
+      &-Heading {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-size: 1.35rem;
+        color: var(--DarkBlue);
+        font-weight: 300;
+      }
+      &-Body {
+        font-weight: 300;
+        color: var(--GrayishBlue);
+        line-height: 1.5;
+      }
+    }
+  }
+  &-Mockups {
+    position: absolute;
+    right: -115px;
+    top: -815px;
+    height: 850px;
+  }
+}
