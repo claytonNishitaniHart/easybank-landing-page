@@ -1,0 +1,37 @@
+.Article {
+  width: calc(20vw - 20px);
+  background-color: var(--White);
+  margin: 10px;
+  border-radius: 5px;
+  &-Image {
+    width: calc(20vw - 20px);
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &-Author {
+    display: block;
+    margin: 20px;
+    font-size: 0.5rem;
+    color: var(--GrayishBlue);
+  }
+  &-Heading {
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: var(--DarkBlue);
+    cursor: pointer;
+    &:hover {
+      color: var(--LimeGreen);
+    }
+  }
+  &-Body {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--GrayishBlue);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}
