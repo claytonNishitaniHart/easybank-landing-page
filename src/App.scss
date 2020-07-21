@@ -1,24 +1,54 @@
+$primary-color: (
+        "Dark Blue": hsl(233, 26%, 24%),
+        "Lime Green": hsl(136, 65%, 51%),
+        "Bright Cyan": hsl(192, 70%, 51%)
+);
+
+$gradient: linear-gradient(to right, map_get($primary-color, "Lime Green"), map_get($primary-color, "Bright Cyan"));
+
+$neutral-color: (
+        "Grayish Blue": hsl(233, 8%, 62%),
+        "Light Grayish Blue": hsl(220, 16%, 96%),
+        "Very Light Gray": hsl(0, 0%, 98%),
+        "White": hsl(0, 0, 100%)
+);
+
 :root {
-  /*Colors*/
-  /*Primary*/
-  --DarkBlue: hsl(233, 26%, 24%);
-  --LimeGreen: hsl(136, 65%, 51%);
-  --BrightCyan: hsl(192, 70%, 51%);
-
-  --Gradient: linear-gradient(to right, var(--LimeGreen), var(--BrightCyan));
-
-  /*Neutral*/
-  --GrayishBlue: hsl(233, 8%, 62%);
-  --LightGrayishBlue: hsl(220, 16%, 96%);
-  --VeryLightGray: hsl(0, 0%, 98%);
-  --White: hsl(0, 0%, 100%);
   font-size: 18px;
   font-weight: 300;
-  background-color: var(--LightGrayishBlue);
+  background-color: map_get($neutral-color, "Light Grayish Blue");
 }
 
 .App {
   overflow: hidden;
+}
+
+.Mobile-Intro {
+  text-align: center;
+  background-color: map_get($neutral-color, "Very Light Gray");
+  padding-bottom: 5rem;
+  &-Mockups {
+    position: absolute;
+    width: 90vw;
+    top: -5.5%;
+    left: 5vw;
+  }
+  &-Heading {
+    margin-top: -2rem;
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: map_get($primary-color, "Dark Blue");
+  }
+  &-Body {
+    padding: 0 1rem;
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: map_get($neutral-color, "Grayish Blue");
+  }
+  &-Button {
+    width: 175px !important;
+    height: 50px !important;
+  }
 }
 
 .Intro {
@@ -27,11 +57,11 @@
   width: 100vw;
   max-width: 100vw;
   height: 600px;
-  background-color: var(--VeryLightGray);
+  background-color: map_get($neutral-color, "Very Light Gray");
   overflow: hidden;
   &-Main {
     margin-left: 5vw;
-    background-color: var(--VeryLightGray);
+    background-color: map_get($neutral-color, "Very Light Gray");
     position: relative;
     z-index: 1;
     width: 500px;
@@ -43,21 +73,21 @@
     font-size: 2.75rem;
     font-weight: 300;
     line-height: 1.25;
-    color: var(--DarkBlue);
+    color: map_get($primary-color, "Dark Blue");
   }
   &-Body {
     width: 450px;
     margin-left: 5vw;
     line-height: 1.5;
-    color: var(--GrayishBlue);
+    color: map_get($neutral-color, "Grayish Blue");
   }
   &-Button {
     border: none;
-    background: var(--Gradient);
+    background: $gradient;
     margin: 15px 0 10px 5vw;
     height: 40px;
     width: 150px;
-    color: var(--White);
+    color: map_get($neutral-color, "White");
     font-weight: 700;
     border-radius: 25px;
     cursor: pointer;
@@ -72,6 +102,11 @@
   }
 }
 
+.Mobile-Info {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
 .Info {
   position: relative;
   height: 600px;
@@ -81,11 +116,11 @@
     margin-top: 100px;
     font-size: 2rem;
     font-weight: 300;
-    color: var(--DarkBlue);
+    color: map_get($primary-color, "Dark Blue");
   }
   &-Body {
     margin-left: 10vw;
-    color: var(--GrayishBlue);
+    color: map_get($neutral-color, "Grayish Blue");
     width: 650px;
     line-height: 1.5;
   }
@@ -104,12 +139,12 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
         font-size: 1.35rem;
-        color: var(--DarkBlue);
+        color: map_get($primary-color, "Dark Blue");
         font-weight: 300;
       }
       &-Body {
         font-weight: 300;
-        color: var(--GrayishBlue);
+        color: map_get($neutral-color, "Grayish Blue");
         line-height: 1.5;
       }
     }
@@ -126,14 +161,14 @@
   position: relative;
   width: 100vw;
   height: 600px;
-  background-color: var(--VeryLightGray);
+  background-color: map_get($neutral-color, "Very Light Gray");
   padding-top: 75px;
   padding-bottom: 75px;
   &-Heading {
     margin-left: 10vw;
     font-size: 2rem;
     font-weight: 300;
-    color: var(--DarkBlue);
+    color: map_get($primary-color, "Dark Blue");
   }
   &-Grid {
     position: relative;
@@ -147,9 +182,44 @@
   }
 }
 
+.Mobile-Footer {
+  position: relative;
+  background-color: map_get($primary-color, "Dark Blue");
+  box-sizing: border-box;
+  height: 500px;
+  padding-top: 30px;
+  text-align: center;
+  &-Socials {
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 250px;
+    margin: 1rem 0 1rem 0;
+    &-Button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      &-SVG {
+        width: 30px;
+        height: 30px;
+      }
+      &:hover &-SVG {
+        fill: map_get($primary-color, "Lime Green");
+      }
+    }
+  }
+  &-Links {
+    display: block;
+    &-Text {
+      display: block;
+      color: map_get($neutral-color, "White");
+      padding: 0.5rem;
+    }
+  }
+}
+
 .Footer {
   position: relative;
-  background-color: var(--DarkBlue);
+  background-color: map_get($primary-color, "Dark Blue");
   box-sizing: border-box;
   height: 200px;
   padding-top: 50px;
@@ -167,7 +237,7 @@
       background: none;
       cursor: pointer;
       &:hover &-SVG {
-        fill: var(--LimeGreen);
+        fill: map_get($primary-color, "Lime Green");
       }
     }
   }
@@ -182,10 +252,10 @@
     &-Text {
       padding-bottom: 15px;
       font-size: 0.75rem;
-      color: var(--White);
+      color: map_get($neutral-color, "White");
       cursor: pointer;
       &:hover {
-        color: var(--LimeGreen);
+        color: map_get($primary-color, "Lime Green");
       }
     }
   }
@@ -195,10 +265,10 @@
     right: 10vw;
     box-sizing: border-box;
     border: none;
-    background: var(--Gradient);
+    background: $gradient;
     height: 40px;
     width: 150px;
-    color: var(--White);
+    color: map_get($neutral-color, "White");
     font-weight: 700;
     border-radius: 25px;
     cursor: pointer;
@@ -211,10 +281,73 @@
     top: 120px;
     right: 10vw;
     font-size: 0.75rem;
-    color: var(--GrayishBlue);
+    color: map_get($neutral-color, "Grayish Blue");
   }
 }
 
 .Logo-Text {
-  fill: var(--White);
+  fill: map_get($neutral-color, "White");
+}
+
+@media only screen and (max-width: 600px) {
+  .Info {
+    &-Heading {
+      margin: 5rem 0 0 0;
+    }
+    &-Body {
+      margin-left: 0;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      width: auto;
+    }
+    &-InfoBlocks {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      grid-row-gap: 2rem;
+      height: auto;
+      &-InfoBlock {
+        padding-right: 0;
+        &-Heading {
+          margin: 1rem 0 1rem 0;
+        }
+      }
+    }
+  }
+
+  .Articles {
+    height: auto;
+    text-align: center;
+    &-Heading {
+      margin: 1rem 0 2rem 0;
+      font-weight: 300;
+    }
+    &-Grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      grid-row-gap: 1.5rem;
+      margin: 0 1vw 0 1vw;
+      height: auto;
+    }
+  }
+
+  .Footer {
+    &-Button {
+      margin-top: 1rem;
+      position: relative;
+      display: inline-block;
+      top: auto;
+      right: auto;
+      width: 175px;
+      height: 50px;
+      font-size: 0.9rem;
+    }
+    &-Copyright {
+      margin-top: 1rem;
+      position: relative;
+      top: auto;
+      right: auto;
+      display: block;
+      font-size: 1rem;
+    }
+  }
 }

@@ -1,12 +1,53 @@
+$primary-color: (
+        "Dark Blue": hsl(233, 26%, 24%),
+        "Lime Green": hsl(136, 65%, 51%),
+        "Bright Cyan": hsl(192, 70%, 51%)
+);
+
+$gradient: linear-gradient(to right, map_get($primary-color, "Lime Green"), map_get($primary-color, "Bright Cyan"));
+
+$neutral-color: (
+        "Grayish Blue": hsl(233, 8%, 62%),
+        "Light Grayish Blue": hsl(220, 16%, 96%),
+        "Very Light Gray": hsl(0, 0%, 98%),
+        "White": hsl(0, 0, 100%)
+);
+
+.Mobile-Dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(map_get($primary-color, "Dark Blue"), rgba(0,0,0,0));
+  z-index: 998;
+  &-Menu {
+    display: grid;
+    grid-template-rows: repeat(5, 3rem);
+    margin: 100px 5vw 0 5vw;
+    padding: 1rem 0 1rem 0;
+    width: 90vw;
+    text-align: center;
+    background-color: map_get($neutral-color, "White");
+    border-radius: 5px;
+    &-Item {
+      margin: auto;
+      color: map_get($primary-color, "Dark Blue");
+      font-size: 1.25rem;
+    }
+  }
+}
+
 .Navbar {
   position: fixed;
   top: 0;
   left: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 80vw;
-  height: 25px;
-  background-color: var(--White);
+  box-sizing: border-box;
+  width: 100vw;
+  height: 75px;
+  background-color: map_get($neutral-color, "White");
   padding: 25px 10vw;
   z-index: 999;
   &-Logo {
@@ -21,7 +62,7 @@
       position: relative;
       border: none;
       background: none;
-      color: var(--GrayishBlue);
+      color: map_get($neutral-color, "Grayish Blue");
       font-weight: 400;
       box-sizing: border-box;
       height: 75px;
@@ -35,11 +76,11 @@
         top: 70px;
         height: 5px;
         width: 0;
-        background-image: var(--Gradient);
+        background-image: $gradient;
         transition: width ease 150ms, left ease 150ms;
       }
       &:hover {
-        color: var(--DarkBlue);
+        color: map_get($primary-color, "Dark Blue");
       }
       &:hover::before {
         width: 70%;
@@ -53,11 +94,11 @@
     margin-top: 17px;
     right: 10vw;
     border: none;
-    background: var(--Gradient);
+    background: $gradient;
     padding: 0;
     height: 40px;
     width: 150px;
-    color: var(--White);
+    color: map_get($neutral-color, "White");
     font-weight: 700;
     border-radius: 25px;
     cursor: pointer;
@@ -65,4 +106,17 @@
       filter: brightness(110%);
     }
   }
+  &-MenuHamburger {
+    background: none;
+    border: none;
+    grid-column-start: 3;
+    height: 100%;
+    width: 25px;
+    padding: 0;
+    margin-left: auto;
+  }
+}
+
+.mobileNavbar {
+  padding: 25px 7.5vw;
 }

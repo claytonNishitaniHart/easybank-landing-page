@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./NavBar.scss";
 
 import Logo from "./../images/logo.svg";
+import Hamburger from "./../images/icon-hamburger.svg";
+import Close from "./../images/icon-close.svg";
 
-class NavBar extends React.Component{
-  render() {
+function NavBar({isMobile}) {
+  const [clicked, setClicked] = useState(false);
+  
+  const Menu = clicked ?
+    <div className={"Mobile-Dropdown"}>
+      <div className={"Mobile-Dropdown-Menu"}>
+        <span className={"Mobile-Dropdown-Menu-Item"}>Home</span>
+        <span className={"Mobile-Dropdown-Menu-Item"}>About</span>
+        <span className={"Mobile-Dropdown-Menu-Item"}>Contact</span>
+        <span className={"Mobile-Dropdown-Menu-Item"}>Blog</span>
+        <span className={"Mobile-Dropdown-Menu-Item"}>Careers</span>
+      </div>
+    </div>
+    : null;
+  
+  if (isMobile) {
+    return (
+      <div>
+        <div className={"Navbar mobileNavbar"}>
+          <img className={"Navbar-Logo"} src={Logo} alt={"logo"}/>
+          <button className={"Navbar-MenuHamburger"} onClick={() => setClicked(!clicked)}><img src={clicked ? Close : Hamburger} alt={"hamburger"}/></button>
+        </div>
+        {Menu}
+      </div>
+    );
+  } else {
     return (
       <div className={"Navbar"}>
         <img className={"Navbar-Logo"} src={Logo} alt={"logo"}/>

@@ -1,6 +1,21 @@
+$primary-color: (
+        "Dark Blue": hsl(233, 26%, 24%),
+        "Lime Green": hsl(136, 65%, 51%),
+        "Bright Cyan": hsl(192, 70%, 51%)
+);
+
+$gradient: linear-gradient(to right, map_get($primary-color, "Lime Green"), map_get($primary-color, "Bright Cyan"));
+
+$neutral-color: (
+        "Grayish Blue": hsl(233, 8%, 62%),
+        "Light Grayish Blue": hsl(220, 16%, 96%),
+        "Very Light Gray": hsl(0, 0%, 98%),
+        "White": hsl(0, 0, 100%)
+);
+
 .Article {
   width: calc(20vw - 20px);
-  background-color: var(--White);
+  background-color: map_get($neutral-color, "White");
   margin: 10px;
   border-radius: 5px;
   &-Image {
@@ -13,25 +28,37 @@
     display: block;
     margin: 20px;
     font-size: 0.5rem;
-    color: var(--GrayishBlue);
+    color: map_get($neutral-color, "Grayish Blue");
   }
   &-Heading {
     display: block;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    color: var(--DarkBlue);
+    color: map_get($primary-color, "Dark Blue");
     cursor: pointer;
     &:hover {
-      color: var(--LimeGreen);
+      color: map_get($primary-color, "Lime Green");
     }
   }
   &-Body {
     display: block;
     font-size: 0.65rem;
-    color: var(--GrayishBlue);
+    color: map_get($neutral-color, "Grayish Blue");
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Article {
+    box-sizing: border-box;
+    width: 90vw;
+    margin: 0 5vw 0 5vw;
+    text-align: left;
+    &-Image {
+      width: 90vw;
+    }
   }
 }
